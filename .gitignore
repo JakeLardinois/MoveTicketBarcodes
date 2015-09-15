@@ -41,3 +41,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+/MoveTicketBarcodes/bin
+/MoveTicketBarcodes/obj
+
+/GenCode128/bin
+/GenCode128/obj

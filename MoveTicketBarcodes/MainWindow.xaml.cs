@@ -31,7 +31,7 @@ namespace MoveTicketBarcodes
         private const int BARCODELABELWIDTH = 150;//Barcode label width in pixels 150px = 2inches
         private const int BARCODELABELLENGTH = 300;//Barcode label length in pixels 300px = 4inches
         private const int MAXBARCODEHIEGHT = 20;
-        private const int LEFTMARGIN = 5;
+        private const int LEFTMARGIN = 1;
         private const string BARCODEHEADER = "QSF-7.1.A REV: 1-30-12";
         private const string FONTNAME = "Arial";
 
@@ -88,14 +88,14 @@ namespace MoveTicketBarcodes
                     /*I changed the below code to draw on a rectangle that is drawn on the label. This was the only way that I could control the hieght of the barcode. Else it would grow 
                      * wider when more data was placed in the textbox.  I also multiplied the label length by a multiplier because the barcode length that was specified was shorter than the
                      * label length specified.  So by using a multiplier, I figured that the length of barcode vs length of label would be proportional.*/
-                    g.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 35, (int)(BARCODELABELLENGTH * .9), MAXBARCODEHIEGHT));
+                    g.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 35, (int)(BARCODELABELLENGTH), MAXBARCODEHIEGHT));
                     //g.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), 5, 35);
 
                     objStringBuilder.Append(string.Format("Job:{0}", txtJob.Text));
                     g.DrawString(objStringBuilder.ToString(), fnt, System.Drawing.Brushes.Black, LEFTMARGIN, 55);
                     objStringBuilder.Clear();
 
-                    g.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 80, (int)(BARCODELABELLENGTH * .9), MAXBARCODEHIEGHT));
+                    g.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 80, (int)(BARCODELABELLENGTH), MAXBARCODEHIEGHT));
                     //g.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), 5, 80);
 
                     g.DrawString("Emp#'s:________________________", fnt, System.Drawing.Brushes.Black, LEFTMARGIN, 120);
@@ -137,14 +137,14 @@ namespace MoveTicketBarcodes
                         objGraphics.DrawString(objStringBuilder.ToString(), fnt, System.Drawing.Brushes.Black, LEFTMARGIN, 10);
                         objStringBuilder.Clear();
 
-                        objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 35, (int)(BARCODELABELLENGTH * 1.3), MAXBARCODEHIEGHT));
+                        objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 35, (int)(BARCODELABELLENGTH), MAXBARCODEHIEGHT));
                         //objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtItem.Text, BARCODEWEIGHT, true), LEFTMARGIN, 35);
 
                         objStringBuilder.Append(string.Format("Job:{0}", txtJob.Text));
                         objGraphics.DrawString(objStringBuilder.ToString(), fnt, System.Drawing.Brushes.Black, LEFTMARGIN, 55);
                         objStringBuilder.Clear();
 
-                        objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 80, (int)(BARCODELABELLENGTH * 1.3), MAXBARCODEHIEGHT));
+                        objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), new System.Drawing.Rectangle(LEFTMARGIN, 80, (int)(BARCODELABELLENGTH), MAXBARCODEHIEGHT));
                         //objGraphics.DrawImage(Code128Rendering.MakeBarcodeImage(txtJob.Text, BARCODEWEIGHT, true), LEFTMARGIN, 80);
 
                         objGraphics.DrawString("Emp#'s:________________________________", fnt, System.Drawing.Brushes.Black, LEFTMARGIN, 120);
